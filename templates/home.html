@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div class="grid-25">
+        <p>Create your profile!</p>
+    </div>
+    <div class="grid-75">
+        {% if user.is_authenticated %}
+            <h1 style="text-shadow: 2px 4px 3px rgba(0,0,0,0.3);">Welcome, {{ user.username }}!</h1>
+        {% else %}
+            <h1 style="text-shadow: 2px 4px 3px rgba(0,0,0,0.3);">Welcome to Simple Profile!</h1>
+        {% endif %}
+
+        <p>Hello, welcome to Simple Profile! This is a great app to create and see your profile.</p>
+        {% if user.is_authenticated %}
+            <p>Now you are signed in! You can create, edit and view your profile!</p>
+        {% else %}
+            <p>Have account? Go to Sign In and create, edit your prifile!</p>
+            <p>No account? Go to Sign Up and create your account!</p>
+        {% endif %}
+    </div>
+{% endblock %}

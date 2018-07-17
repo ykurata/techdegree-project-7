@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ user.username }}'s Profile Detail | {{ block.super }}{% endblock %}
+
+{% block body %}
+<div class="profile-detail" style="text-align: center;">
+  {% if profile.avatar %}
+      <img src="{{ profile.avatar.url }}" height=200 width=200 alt="profile image"/
+style="border-radius: 8px;box-shadow: 5px 10px 18px #888888;">
+  {% endif %}
+      <br></br>
+      <p>First Name: {{ profile.first_name }}</p>
+      <p>Last Name: {{ profile.last_name }}</p>
+      <p>Email: {{ profile.email }}</p>
+      <p>Birthday: {{ profile.birth_date }}</p>
+      <p>Biograpgy: {{ profile.bio }}</p>
+      <a href="{% url 'accounts:edit_profile' %}" class="button">Edit</a>
+</div>
+{% endblock %}

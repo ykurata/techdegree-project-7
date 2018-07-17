@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Create Profile | {{ block.super }}{% endblock %}
+
+{% block body %}
+<div class="profile_form">
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="button">
+    </form>
+</div>
+{% endblock %}
